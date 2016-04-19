@@ -1,0 +1,86 @@
+import stanford.karel.*;
+
+public class CheckerboardKarel extends SuperKarel {
+	public void run() {
+		putBeeper();
+		move();
+		finalChecker();
+	}
+	//one row it places the beepers
+	private void miniChecker() {
+		while (frontIsClear()) {
+			move();
+			putBeeper();
+			move();
+		}
+	}
+	private void otherChecker() {
+		turnLeft();
+		if (frontIsClear()) {
+			move();
+			turnLeft();
+			putBeeper();
+			while (frontIsClear()) {
+				move();
+				while (frontIsClear()) {
+				move();
+				putBeeper();
+				move();
+				}
+			}
+		}
+	}
+	private void someChecker() {
+		turnRight();
+		if (frontIsClear()) {
+			move();
+			turnRight();
+			putBeeper();
+			while (frontIsClear()) {
+				move();
+				while (frontIsClear()) {
+				move();
+				putBeeper();
+				move();
+				}
+			}
+		}
+	}
+	private void finalChecker() {
+		miniChecker();
+		if (leftIsClear()) {
+		otherChecker();
+		if (rightIsClear()) {
+		someChecker();
+		if (leftIsClear()) {
+		otherChecker();
+		if (rightIsClear()) {
+		someChecker();
+		if (leftIsClear()) {
+		otherChecker();
+		if (rightIsClear()) {
+		someChecker();
+		if (leftIsClear()) {
+		otherChecker();
+		if (rightIsClear()) {
+			someChecker();
+			if (leftIsClear()) {
+			otherChecker();
+			if (rightIsClear()) {
+				someChecker();
+				if (leftIsClear()) {
+				otherChecker();
+					}
+					}
+				}
+				}
+				}
+				}
+		}
+				}
+		}
+			}
+		}
+	}
+	
+}
